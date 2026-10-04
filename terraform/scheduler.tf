@@ -39,3 +39,4 @@ resource "google_cloud_scheduler_job" "ingest_evening" {
     }
   }
 }
+
