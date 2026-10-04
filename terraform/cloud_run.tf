@@ -6,7 +6,7 @@ resource "google_cloud_run_v2_service" "tech_digest_api" {
 
   template {
     containers {
-      image = "asia-northeast1-docker.pkg.dev/tech-digest-prod/tech-digest/tech-digest-api:latest"
+      image = "asia-northeast1-docker.pkg.dev/${var.project_id}/tech-digest/tech-digest-api:${var.image_tag}"
     }
 
     scaling {
