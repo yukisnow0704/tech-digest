@@ -1,7 +1,12 @@
 terraform {
+  backend "gcs" {
+    bucket = "tech-digest-prod-tfstate"
+    prefix = "terraform/state"
+  }
+
   required_providers {
     google = {
-      source = "hashicorp/google"
+      source  = "hashicorp/google"
       version = "~> 6.0"
     }
   }
@@ -9,13 +14,13 @@ terraform {
 
 provider "google" {
   project = var.project_id
-  region = var.region
+  region  = var.region
 }
 
 variable "project_id" {
-  default     = "tech-digest-prod"
+  default = "tech-digest-prod"
 }
 
 variable "region" {
-  default     = "asia-northeast1"
+  default = "asia-northeast1"
 }
